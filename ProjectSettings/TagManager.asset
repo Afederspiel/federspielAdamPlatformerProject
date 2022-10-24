@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Platform
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -11,7 +13,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Ground
   - 
   - 
   - 
@@ -38,8 +40,11 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: bg
+  - name: bgW2
     uniqueID: 1390645213
+    locked: 0
+  - name: bgW1
+    uniqueID: 137878701
     locked: 0
   - name: Default
     uniqueID: 0
