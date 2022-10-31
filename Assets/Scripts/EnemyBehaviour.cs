@@ -8,6 +8,9 @@ public class EnemyBehaviour : MonoBehaviour
     public float positionleft;
     public float positionright;
     public float enemyspeed;
+    public Vector3 respawn;
+    public int patrollength;
+    public int patrolduration;
 
     void Start()
     {
@@ -15,30 +18,27 @@ public class EnemyBehaviour : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        transform.position = Vector2.MoveTowards(transform.position, new Vector3(positionleft, transform.position.y, transform.position.z), enemyspeed * Time.deltaTime);
-        if (transform.position.x - 0.01f <= positionleft)
-        {
-            movingRight();
-        }
-            else if (transform.position.x + 0.01f >= positionright)
-        {
-            movingLeft();
-        }
-    }
+        //transform.position = Vector2.MoveTowards(transform.position, new Vector3(positionleft, transform.position.y, transform.position.z), enemyspeed * Time.deltaTime);
+        transform.position = new Vector2(transform.position.x - enemyspeed * Time.deltaTime, transform.position.y);
+        patrollength++;
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == ("Player"))
+        if (patrollength >= patrolduration)
         {
-
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-            ReloadGame();
-
+            patrollength = 0;
+            enemyspeed *= -1;
         }
 
+        //if (transform.position.x - 0.01f <= positionleft)
+        //{
+          //  movingRight();
+        //}
+        
+        //if (transform.position.x + 0.01f >= positionright)
+        //{
+          //  movingLeft();
+        //}
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -48,10 +48,6 @@ public class EnemyBehaviour : MonoBehaviour
             Destroy(gameObject);
         }
 
-    }
-    private void ReloadGame()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
     }
 
     void movingLeft()

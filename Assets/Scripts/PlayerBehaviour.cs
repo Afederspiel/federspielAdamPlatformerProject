@@ -8,12 +8,12 @@ public class PlayerBehaviour : MonoBehaviour
     private Rigidbody2D rb2d;
     public float Speed;
     int jumpCount = 1;
-    private Vector3 respawnPoint;
+    public Vector3 respawn;
+
     // Start is called before the first frame update
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        respawnPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -48,5 +48,28 @@ public class PlayerBehaviour : MonoBehaviour
 
         }
 
+        if (collision.gameObject.tag == ("Obstacle"))
+        {
+            Respawn();
+        }
+
+        if (collision.gameObject.tag == ("Enemy"))
+        {
+            Respawn();
+        }
+
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Checkpoint"))
+        {
+            respawn = this.transform.position;
+        }
+    }
+
+    public void Respawn()
+    {
+        this.transform.position = respawn;
     }
 }

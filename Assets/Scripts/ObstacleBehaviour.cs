@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class ObstacleBehaviour : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Vector3 respawn;
     void Start()
     {
         
@@ -21,18 +22,8 @@ public class ObstacleBehaviour : MonoBehaviour
     {
         if (collision.gameObject.tag == ("Player"))
         {
-
-            Destroy(collision.gameObject);
-            Destroy(gameObject);
-            ReloadGame();
-
+            collision.gameObject.transform.position = respawn;
         }
 
     }
-
-    private void ReloadGame()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-    }
-
 }

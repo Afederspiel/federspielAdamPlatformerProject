@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorldhopBehaviour : MonoBehaviour
+public class WorldhopBehaviourObstacles : MonoBehaviour
 {
-    public GameObject shifter;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,15 +29,15 @@ public class WorldhopBehaviour : MonoBehaviour
 
         if (Input.GetButtonDown("q"))
         {
-            // Make it tangible
-            if (GetComponent<BoxCollider2D>().enabled == false)
+            if (GetComponent<PolygonCollider2D>().enabled == false)
             {
-                GetComponent<BoxCollider2D>().enabled = true;
+                GetComponent<PolygonCollider2D>().enabled = true;
             }
             else // Make it intangible
             {
-                GetComponent<BoxCollider2D>().enabled = false;
+                GetComponent<PolygonCollider2D>().enabled = false;
             }
         }
     }
+
 }
