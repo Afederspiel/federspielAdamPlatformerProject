@@ -5,6 +5,7 @@ using UnityEngine;
 public class WorldhopBehaviour : MonoBehaviour
 {
     public GameObject shifter;
+    public AudioSource WorldhopSFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +15,7 @@ public class WorldhopBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("q"))
+        if (Input.GetKeyDown("q"))
         {
             // Make it visible
             if (GetComponent<Renderer>().enabled == false)
@@ -25,10 +26,9 @@ public class WorldhopBehaviour : MonoBehaviour
             {
                 GetComponent<Renderer>().enabled = false;
             }
-
         }
 
-        if (Input.GetButtonDown("q"))
+        if (Input.GetKeyDown("q"))
         {
             // Make it tangible
             if (GetComponent<BoxCollider2D>().enabled == false)

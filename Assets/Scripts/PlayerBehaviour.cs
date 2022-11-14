@@ -9,6 +9,8 @@ public class PlayerBehaviour : MonoBehaviour
     public float Speed;
     int jumpCount = 1;
     public Vector3 respawn;
+    public AudioSource jump;
+    public AudioSource croak;
 
     // Start is called before the first frame update
     void Start()
@@ -27,6 +29,7 @@ public class PlayerBehaviour : MonoBehaviour
             rb2d.velocity = Vector2.zero;
             rb2d.AddForce(jumpForce);
             jumpCount--;
+            jump.Play();
         }
 
         float xMove = Input.GetAxis("Horizontal");
@@ -41,7 +44,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.gameObject.tag == ("Platform"))
         {
 
             jumpCount = 1;
@@ -70,6 +73,7 @@ public class PlayerBehaviour : MonoBehaviour
 
     public void Respawn()
     {
+        croak.Play();
         this.transform.position = respawn;
     }
 }

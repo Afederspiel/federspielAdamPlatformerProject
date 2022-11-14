@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WorldhopBehaviourObstacles : MonoBehaviour
 {
+    public AudioSource WorldhopSFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,7 +14,7 @@ public class WorldhopBehaviourObstacles : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("q"))
+        if (Input.GetKeyDown("q"))
         {
             // Make it visible
             if (GetComponent<Renderer>().enabled == false)
@@ -27,7 +28,7 @@ public class WorldhopBehaviourObstacles : MonoBehaviour
 
         }
 
-        if (Input.GetButtonDown("q"))
+        if (Input.GetKeyDown("q"))
         {
             if (GetComponent<PolygonCollider2D>().enabled == false)
             {

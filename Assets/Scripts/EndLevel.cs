@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EndLevel : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class EndLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
- 
+        WinText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -23,7 +24,7 @@ public class EndLevel : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(collision.gameObject);
-            WinText.GetComponent<Renderer>().enabled = true;
+            WinText.SetActive(true);
         }
 
     }
