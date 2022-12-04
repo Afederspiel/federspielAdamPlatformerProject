@@ -51,6 +51,11 @@ public class PlayerBehaviour : MonoBehaviour
 
         }
 
+        if (collision.gameObject.tag == ("Mushroom"))
+        {
+            jumpCount = 2;
+        }
+
         if (collision.gameObject.tag == ("Obstacle"))
         {
             Respawn();

@@ -21,10 +21,12 @@ public class WorldhopBehaviour : MonoBehaviour
             if (GetComponent<Renderer>().enabled == false)
             {
                 GetComponent<Renderer>().enabled = true;
+                
             }
             else // Make it invisible
             {
                 GetComponent<Renderer>().enabled = false;
+                
             }
         }
 
