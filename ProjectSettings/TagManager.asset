@@ -9,6 +9,9 @@ TagManager:
   - Obstacle
   - Enemy
   - Mushroom
+  - kill trigger
+  - Boulder
+  - PIT
   layers:
   - Default
   - TransparentFX
@@ -49,6 +52,12 @@ TagManager:
   - name: bgW1
     uniqueID: 137878701
     locked: 0
+  - name: extra
+    uniqueID: 2667264361
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: button
+    uniqueID: 668441163
     locked: 0

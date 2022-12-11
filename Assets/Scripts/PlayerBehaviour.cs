@@ -11,6 +11,9 @@ public class PlayerBehaviour : MonoBehaviour
     public Vector3 respawn;
     public AudioSource jump;
     public AudioSource croak;
+    public AudioSource warp;
+    public AudioSource squish;
+    public AudioSource boing;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,11 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("q"))
+        {
+            Worldhop();
+        }
+
         bool shouldJump = Input.GetKeyDown("space") && jumpCount > 0;
 
         if (shouldJump == true)
@@ -53,7 +61,9 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (collision.gameObject.tag == ("Mushroom"))
         {
-            jumpCount = 2;
+            jumpCount = 1;
+            boing.Play();
+
         }
 
         if (collision.gameObject.tag == ("Obstacle"))
@@ -66,6 +76,13 @@ public class PlayerBehaviour : MonoBehaviour
             Respawn();
         }
 
+        if (collision.gameObject.tag == ("Boulder"))
+        {
+            Respawn();
+        }
+
+
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,6 +91,16 @@ public class PlayerBehaviour : MonoBehaviour
         {
             respawn = this.transform.position;
         }
+
+        if (collision.gameObject.CompareTag("PIT"))
+        {
+            Respawn();
+        }
+
+        if (collision.gameObject.CompareTag("kill trigger"))
+        {
+            squish.Play();
+        }
     }
 
     public void Respawn()
@@ -81,4 +108,10 @@ public class PlayerBehaviour : MonoBehaviour
         croak.Play();
         this.transform.position = respawn;
     }
+    public void Worldhop()
+    {
+        warp.Play();
+    }
+
 }
+

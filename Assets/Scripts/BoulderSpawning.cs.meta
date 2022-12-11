@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 0ead0f940cf23bc4995fed80c6bad19b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Boulder: {instanceID: 0}
+  - barricade: {instanceID: 0}
+  - run: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

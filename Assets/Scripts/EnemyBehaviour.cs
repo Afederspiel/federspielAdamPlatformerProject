@@ -45,7 +45,7 @@ public class EnemyBehaviour : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Destroy(gameObject);
+            Invoke("Death", 0.01f);
         }
 
     }
@@ -58,5 +58,10 @@ public class EnemyBehaviour : MonoBehaviour
     void movingRight()
     {
         transform.position = Vector2.MoveTowards(transform.position, new Vector3(positionright, transform.position.y, transform.position.z), enemyspeed * Time.deltaTime);
+    }
+
+    void Death()
+    {
+        Destroy(gameObject);
     }
 }
